@@ -1,0 +1,156 @@
+<html><head><base href=""><link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
+<style>
+.preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #FF7500;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  overflow: hidden;
+}
+
+.logo {
+  width: 200px;
+  height: auto;
+  margin-bottom: 20px;
+  animation: fadeInLogo 1s ease-in;
+}
+
+@keyframes fadeInLogo {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.message {
+  color: white;
+  font-family: 'PT Sans', sans-serif;
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 30px;
+  max-width: 80%;
+  line-height: 1.4;
+  text-shadow: 0 0 10px rgba(255,255,255,0.5);
+}
+
+.magical-container {
+  position: relative;
+  width: 200px;
+  height: 200px;
+}
+
+.coin {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background: #ffd700;
+  border-radius: 50%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  animation: pulse 2s infinite;
+}
+
+.book {
+  position: absolute;
+  width: 40px;
+  height: 50px;
+  background: #4fc3f7;
+  left: 20%;
+  top: 30%;
+  transform-origin: center;
+  animation: rotate 4s infinite linear;
+}
+
+.book:after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 5px;
+  background: #29b6f6;
+  top: 10px;
+}
+
+.sparkle {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  animation: sparkle 1.5s infinite;
+}
+
+.sparkle:nth-child(1) { left: 20%; top: 20%; animation-delay: 0s; }
+.sparkle:nth-child(2) { left: 80%; top: 60%; animation-delay: 0.3s; }
+.sparkle:nth-child(3) { left: 40%; top: 80%; animation-delay: 0.6s; }
+
+@keyframes pulse {
+  0% { transform: translate(-50%, -50%) scale(1); box-shadow: 0 0 20px #ffd700; }
+  50% { transform: translate(-50%, -50%) scale(1.1); box-shadow: 0 0 30px #ffd700; }
+  100% { transform: translate(-50%, -50%) scale(1); box-shadow: 0 0 20px #ffd700; }
+}
+
+@keyframes rotate {
+  0% { transform: rotate(0deg) translateY(-20px); }
+  100% { transform: rotate(360deg) translateY(-20px); }
+}
+
+@keyframes sparkle {
+  0% { transform: scale(0) rotate(0deg); opacity: 0; }
+  50% { transform: scale(1) rotate(180deg); opacity: 1; }
+  100% { transform: scale(0) rotate(360deg); opacity: 0; }
+}
+
+@keyframes fadeOut {
+  0% { opacity: 1; }
+  100% { opacity: 0; visibility: hidden; }
+}
+
+.sparkle svg {
+  width: 100%;
+  height: 100%;
+  fill: #fff;
+}
+</style>
+</head>
+<body>
+
+<div class="preloader">
+  <img src="https://www.positiva.gov.co/documents/2978451/3177876/Logotipo+HeaderSVG.svg/cc22b79e-e0e7-ca91-88b6-acabbd7195f3?t=1689267984705" alt="Positiva Logo" class="logo">
+  <div class="message">Estamos combinando magia educativa con finanzas. Espera un momento.</div>
+  <div class="magical-container">
+    <div class="coin"></div>
+    <div class="book"></div>
+    <div class="sparkle">
+      <svg viewBox="0 0 24 24">
+        <path d="M12 0L14.5 9.5L24 12L14.5 14.5L12 24L9.5 14.5L0 12L9.5 9.5L12 0Z"/>
+      </svg>
+    </div>
+    <div class="sparkle">
+      <svg viewBox="0 0 24 24">
+        <path d="M12 0L14.5 9.5L24 12L14.5 14.5L12 24L9.5 14.5L0 12L9.5 9.5L12 0Z"/>
+      </svg>
+    </div>
+    <div class="sparkle">
+      <svg viewBox="0 0 24 24">
+        <path d="M12 0L14.5 9.5L24 12L14.5 14.5L12 24L9.5 14.5L0 12L9.5 9.5L12 0Z"/>
+      </svg>
+    </div>
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  setTimeout(() => {
+    const preloader = document.querySelector('.preloader');
+    if (preloader) {
+      preloader.style.animation = 'fadeOut 0.5s forwards';
+    }
+  }, 3750); // Increased from 3000ms to 3750ms (25% longer)
+});
+</script>
+
+</body></html>
